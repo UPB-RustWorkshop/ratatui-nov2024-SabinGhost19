@@ -49,9 +49,14 @@ impl<B: Backend> Tui<B> {
     /// [`Draw`] the terminal interface by [`rendering`] the widgets.
     ///
     /// Returns Ok() is no errors occured, Err() otherwhise
-    pub fn draw(&mut self, app: &mut App) {
-        // [`Draw`]: ratatui::Terminal::draw
-        // [`rendering`]: crate::ui:render
+    pub fn draw(&mut self, app: &mut App) -> AppResult<()> {
+        // Render the user interface.
+       
+        self.terminal.draw(|f| {
+            // Apelăm funcția `ui::render()` pentru a desena interfața.
+            ui::render(app, f);
+        })?;
+        Ok(())
     }
 
     /// Resets the terminal interface.
@@ -73,3 +78,4 @@ impl<B: Backend> Tui<B> {
         Ok(())
     }
 }
+

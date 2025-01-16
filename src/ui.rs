@@ -85,7 +85,7 @@ pub fn render(app: &mut App, frame: &mut Frame) {
                 }
                 Err(err) => {
                     let error_message = format!("Failed to get weather data: {}", err);
-                    (error_message, 0, 0.0, 0.0, None, None) // Valoarea 0 pentru umiditate, latitudine și longitudine, și None pentru răsărit/apus.
+                    (error_message, 0, 0.0, 0.0, None, None) 
                 }
             }
         })
